@@ -1,6 +1,6 @@
 cupcakejs
 =============================
-![CupcakeJS](http://i63.tinypic.com/35lhf9j.gif "CupcakeJS Marshmallow")
+![CupcakeJS](http://i63.tinypic.com/35lhf9j.gif "CupcakeJS Marshmallow")  
 A project including GulpJS, BrowserSync, LESS, AutoPrefixer, Pug(Jade), Concat, Minify, Uflify and ImageMinify.
 
 ## Preparation
