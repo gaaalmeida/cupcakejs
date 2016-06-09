@@ -1,6 +1,5 @@
-cupcakejs
-=============================
-A project including GulpJS, BrowserSync, LESS, AutoPrefixer, Pug(Jade), Concat, Minify, Uflify and ImageMinify.
+![CupcakeJS](http://i63.tinypic.com/35lhf9j.gif "CupcakeJS Marshmallow")  
+A project including GulpJS, BrowserSync, LESS, AutoPrefixer, Pug(Jade), Concat, Minify, Uglify and ImageMinify.
 
 ## Preparation
 To use this project, you need install NodeJS and GulpJS
