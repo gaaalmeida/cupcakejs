@@ -10,7 +10,6 @@ var browserSync = require('browser-sync');
 var plumber     = require('gulp-plumber');
 var less        = require('gulp-less');
 var zip         = require('gulp-zip');
-var minimg      = require('gulp-imagemin');
 var pug         = require('gulp-pug');
 var image       = require('gulp-image');
 
