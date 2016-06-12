@@ -1,0 +1,1 @@
+function hello(){document.write(world),console.log(world)}var world="Hello World !";hello();

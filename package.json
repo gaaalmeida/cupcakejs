@@ -1,6 +1,6 @@
 {
   "name": "cupcakejs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "GulpJS, LESS, BrowserSync, Autoprefixer, MinifyCSS and JS, Pug(Jade)...",
   "main": "gulpfile.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-clean-css": "^2.0.9",
     "gulp-concat": "^2.6.0",
-    "gulp-imagemin": "^3.0.1",
+    "gulp-image": "^2.0.1",
     "gulp-less": "^3.1.0",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.0.3",

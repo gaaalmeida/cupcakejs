@@ -12,6 +12,7 @@ var less        = require('gulp-less');
 var zip         = require('gulp-zip');
 var minimg      = require('gulp-imagemin');
 var pug         = require('gulp-pug');
+var image       = require('gulp-image');
 
 
 /*
@@ -43,9 +44,9 @@ gulp.task('pug', function(){
 /*
  * Minify Images
  */
-gulp.task('imgmin', function(){
-  return gulp.src('app/assets/media/*')
-    .pipe(minimg())
+gulp.task('image', function(){
+  return gulp.src('app/assets/media/**/*')
+    .pipe(image())
     .pipe(gulp.dest('app/dist/media'));
 });
 
@@ -53,7 +54,7 @@ gulp.task('imgmin', function(){
  * Compile LESS
  */
 gulp.task('less', function(){
-  return gulp.src('app/assets/**/*.less')
+  return gulp.src('app/assets/*.less')
     .pipe(plumber(function (error) {
       console.log(error);
       this.emit('end');
@@ -81,8 +82,8 @@ gulp.task('js', function(){
  */
 gulp.task('watch', function(){
   gulp.watch('app/assets/**/*.less', ['less'])
-  gulp.watch(['app/assts/media/**/*.png', 'app/assts/media/**/*.jpg', 'app/assts/media/**/*.jpeg', 'app/assts/media/**/*.gif', 'app/assts/media/**/*.svg'], ['imgmin'])
-  gulp.watch('app/assets/media/**/*.js', ['js'])
+  gulp.watch('app/assets/media/**/*', ['image'])
+  gulp.watch('app/assets/js/**/*.js', ['js'])
   gulp.watch('app/pugfiles/**/*.pug', ['pug']);
 });
 
