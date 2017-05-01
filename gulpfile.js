@@ -1,5 +1,5 @@
 /*
- * Cupcakejs v1.0.0 Marshmallow
+ * Cupcakejs v2.0.0 Nanaimo
 */
 var gulp        = require('gulp');
 var prefix      = require('gulp-autoprefixer');
@@ -7,17 +7,14 @@ var clean       = require('gulp-clean-css');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
 var browserSync = require('browser-sync');
-var plumber     = require('gulp-plumber');
-var less        = require('gulp-less');
-var zip         = require('gulp-zip');
+var sass        = require('gulp-sass');
 var pug         = require('gulp-pug');
-var image       = require('gulp-image');
 
 
 /*
  * Starting Server
  */
-gulp.task('serve', ['watch'], function(){
+gulp.task('server', ['watch'], function(){
   return browserSync.init({
     injectChanges: true,
     server: {
@@ -31,7 +28,7 @@ gulp.task('serve', ['watch'], function(){
 });
 
 /*
- * Compile Jade
+ * Compile Pug
  */
 gulp.task('pug', function(){
   return gulp.src('app/pugfiles/**/*.pug')
@@ -41,24 +38,11 @@ gulp.task('pug', function(){
 });
 
 /*
- * Minify Images
+ * Compile SASS
  */
-gulp.task('image', function(){
-  return gulp.src('app/assets/media/**/*')
-    .pipe(image())
-    .pipe(gulp.dest('app/dist/media'));
-});
-
-/*
- * Compile LESS
- */
-gulp.task('less', function(){
-  return gulp.src('app/assets/*.less')
-    .pipe(plumber(function (error) {
-      console.log(error);
-      this.emit('end');
-      }))
-    .pipe(less())
+gulp.task('sass', function(){
+  return gulp.src('app/assets/**/*.sass')
+    .pipe(sass().on('error', sass.logError))
     .pipe(prefix())
     .pipe(clean())
     .pipe(gulp.dest('app/dist/css'))
@@ -77,25 +61,25 @@ gulp.task('js', function(){
 });
 
 /*
+ * Minify Images
+ */
+ gulp.task('imagemin', function(){
+  return gulp.src('app/assets/media/**/*')
+    .pipe(gulp.dest('app/dist/media'))
+    .pipe(browserSync.reload({stream:true}));
+ });
+
+/*
  * Watch
  */
 gulp.task('watch', function(){
-  gulp.watch('app/assets/**/*.less', ['less'])
-  gulp.watch('app/assets/media/**/*', ['image'])
+  gulp.watch('app/assets/**/*.sass', ['sass'])
+  gulp.watch('app/assets/media/**/*', ['imagemin'])
   gulp.watch('app/assets/js/**/*.js', ['js'])
   gulp.watch('app/pugfiles/**/*.pug', ['pug']);
 });
 
 /*
- * ZIP
- */
-gulp.task('zip', function(){
-  return gulp.src('app/dist/*')
-    .pipe(zip('dist.zip'))
-    .pipe(gulp.dest('./zipfiles'));
-});
-
-/*
  * Default Task
  */
-gulp.task('default', ['serve']);
+gulp.task('default', ['server']);
