@@ -1,7 +1,7 @@
 {
   "name": "cupcakejs",
-  "version": "1.1.0",
-  "description": "GulpJS, LESS, BrowserSync, Autoprefixer, MinifyCSS and JS, Pug(Jade)...",
+  "version": "2.0.0",
+  "description": "GulpJS, SASS, BrowserSync, Autoprefixer, MinifyCSS and JS, Pug...",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,17 +9,15 @@
   "author": "Gabriel Almeida",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.12.12",
+    "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-clean-css": "^2.0.9",
-    "gulp-concat": "^2.6.0",
-    "gulp-image": "^2.0.1",
-    "gulp-less": "^3.1.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-pug": "^3.0.3",
-    "gulp-uglify": "^1.5.3",
-    "gulp-zip": "^3.2.0"
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-pug": "^3.3.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2"
   },
   "repository": {
     "type": "git",
