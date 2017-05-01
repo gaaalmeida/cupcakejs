@@ -1,5 +1,5 @@
-![CupcakeJS](http://i63.tinypic.com/35lhf9j.gif "CupcakeJS Marshmallow")  
-A project including GulpJS, BrowserSync, LESS, AutoPrefixer, Pug(Jade), Concat, Minify, Uglify and ImageMinify.
+![CupcakeJS](http://oi66.tinypic.com/2n055le.jpg "CupcakeJS Nanaimo")  
+A project including GulpJS, BrowserSync, SASS, AutoPrefixer, Pug, Concat, Minify, Uglify.
 
 ## Preparation
 To use this project, you need install NodeJS and GulpJS
@@ -13,8 +13,7 @@ To use this project, you need install NodeJS and GulpJS
 2. And run `npm install`
 
 ## Usage
-Run Server, run `$ gulp serve`  
-Create a ZIP of your site, run `$ gulp zip`
+Run Server, run `$ gulp server`
 
 ## Issues
 The `npm install` command can be very slow. To solve this issue run the command `npm set progress=false`.
