@@ -1,5 +1,5 @@
 /*
- * Cupcakejs v2.0.0 Nanaimo
+ * Cupcakejs v2.0.1 Nanaimo
 */
 var gulp        = require('gulp');
 var prefix      = require('gulp-autoprefixer');
@@ -41,8 +41,10 @@ gulp.task('pug', function(){
  * Compile SASS
  */
 gulp.task('sass', function(){
-  return gulp.src('app/assets/**/*.sass')
-    .pipe(sass().on('error', sass.logError))
+  return gulp.src('app/assets/main.sass')
+    .pipe(sass({
+      includePaths: ['scss']
+    }).on('error', sass.logError))
     .pipe(prefix())
     .pipe(clean())
     .pipe(gulp.dest('app/dist/css'))
@@ -61,11 +63,10 @@ gulp.task('js', function(){
 });
 
 /*
- * Minify Images
+ * Images
  */
- gulp.task('imagemin', function(){
-  return gulp.src('app/assets/media/**/*')
-    .pipe(gulp.dest('app/dist/media'))
+ gulp.task('img', function(){
+  return gulp.src('app/dist/media/**/*')
     .pipe(browserSync.reload({stream:true}));
  });
 
@@ -74,7 +75,8 @@ gulp.task('js', function(){
  */
 gulp.task('watch', function(){
   gulp.watch('app/assets/**/*.sass', ['sass'])
-  gulp.watch('app/assets/media/**/*', ['imagemin'])
+  gulp.watch('app/assets/**/*.scss', ['sass'])
+  gulp.watch('app/dist/media/**/*', ['img'])
   gulp.watch('app/assets/js/**/*.js', ['js'])
   gulp.watch('app/pugfiles/**/*.pug', ['pug']);
 });
