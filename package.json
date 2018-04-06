@@ -1,6 +1,6 @@
 {
   "name": "cupcakejs",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "GulpJS, SASS, BrowserSync, Autoprefixer, MinifyCSS and JS, Pug...",
   "main": "gulpfile.js",
   "scripts": {
